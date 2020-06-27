@@ -1,4 +1,8 @@
 module.exports = {
+  app: {
+    port: process.env.APP_PORT || 3000,
+    httpBodyLimit: process.env.APP_HTTP_BODY_LIMIT || '20mb',
+  },
   db: {
     host: process.env.DATABASE_HOST,
     database: process.env.DATABASE_NAME,

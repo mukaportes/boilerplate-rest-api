@@ -2,22 +2,22 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const setupRoutes = require('./infra/routes');
+const config = require('./app/config');
 
-const port = 8001;
-const startExpress = async (port) => {
+const startExpress = async () => {
   try {
     const app = express();
 
     app.use(cors());
-    app.use(bodyParser.json({ limit: '20mb' }));
+    app.use(bodyParser.json({ limit: config.app.httpBodyLimit }));
     setupRoutes(app);
 
-    app.listen(port);
+    app.listen(config.app.port);
 
-    console.info(`App is listening on port ${port}`);
+    console.info(`App is listening on port ${config.app.port}`);
   } catch (error) {
-    console.error(`App failed to listen on port ${port}`, error);
+    console.error(`App failed to listen on port ${config.app.port}`, error);
   }
 };
 
-startExpress(port);
+startExpress(config.app.port);
