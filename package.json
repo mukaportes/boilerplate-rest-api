@@ -4,7 +4,10 @@
   "description": "Personal REST API boilerplate for Node.js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "db:migrate": "knex --knexfile ../src/app/config/knexfile.js migrate:latest",
+    "db:rollback": "knex --knexfile ../src/app/config/knexfile.js migrate:rollback",
+    "start": "nodemon src/index.js",
+    "test": "jest --config test.json --forceExit --collectCoverage"
   },
   "repository": {
     "type": "git",
@@ -27,7 +30,9 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "knex": "^0.21.1",
     "moment": "^2.27.0",
+    "nodemon": "^2.0.4",
     "pg": "^8.2.1",
     "sequelize": "^6.2.0"
   }
