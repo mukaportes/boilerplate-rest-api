@@ -1,15 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const setupRoutes = require('./infra/routes');
 const config = require('./app/config');
+const setupRoutes = require('./infra/routes');
+const loggingMiddleware = require('./infra/middlewares/logging');
 
-const startExpress = async () => {
+const startExpress = () => {
   try {
     const app = express();
 
     app.use(cors());
     app.use(bodyParser.json({ limit: config.app.httpBodyLimit }));
+    app.use(loggingMiddleware);
     setupRoutes(app);
 
     app.listen(config.app.port);

@@ -1,18 +1,18 @@
-const logHttpRequest = (req) => {
-  const fullUrl = `${req.protocol}://${req.headers.host}${req.originalUrl}`;
+const getFullUrl = (req) => `${req.protocol}://${req.headers.host}${req.originalUrl}`;
+const getLogMessage = (action, req) => `${action} ${req.method} at ${req.baseUrl}`;
 
+const logHttpRequest = (req) => {
   const content = {
-    fullUrl,
-    headers: req.rawHeaders,
-    host: req.headers.host,
-    url: req.originalUrl,
-    baseUrl: req.baseUrl,
     body: req.body,
+    fullUrl: getFullUrl(req),
+    headers: req.headers,
+    host: req.headers.host,
     method: req.method,
     params: req.params,
+    url: req.originalUrl,
   };
 
-  console.info(fullUrl, content);
+  console.info(getLogMessage('Starting', req), content);
 };
 
 const logHttpResponse = (req, res) => {
@@ -27,10 +27,11 @@ const logHttpResponse = (req, res) => {
   };
 
   res.end = function (chunk) {
-    if (chunk) chunks.push(new Buffer(chunk));
+    if (chunk) chunks.push(Buffer.from(chunk));
 
-    var body = Buffer.concat(chunks).toString('utf8');
-    console.log(req.path, body);
+    const body = Buffer.concat(chunks).toString('utf8');
+
+    console.info(getLogMessage('Ending', req), body);
 
     responseEnd.apply(res, arguments);
   };
