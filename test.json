@@ -19,5 +19,5 @@
      "<rootDir>/build",
      "<rootDir>/node_modules"
   ],
-  "globalSetup": "./test/setup/index.js"
+  "globalSetup": "./test/setup.js"
 }
