@@ -1,0 +1,26 @@
+{
+  "env": {
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "extends": ["airbnb-base"],
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
+  
+  "rules": {
+    "complexity": ["error", { "max":  20 }],
+    "max-lines-per-function": ["error", 
+      { "max": 40, 
+        "skipComments": true, 
+        "skipBlankLines": true 
+      }],
+    "max-lines":["error", 
+      { "max": 300, 
+        "skipComments": true, 
+        "skipBlankLines": true 
+      }],
+    "max-statements": ["error", 20]
+  }
+}

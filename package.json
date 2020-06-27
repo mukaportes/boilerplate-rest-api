@@ -1,0 +1,23 @@
+{
+  "name": "boilerplate-rest-api",
+  "version": "1.0.0",
+  "description": "Personal REST API boilerplate for Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mukaportes/boilerplate-rest-api.git"
+  },
+  "author": "Murilo Portescheller <@mukaportes>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/mukaportes/boilerplate-rest-api/issues"
+  },
+  "homepage": "https://github.com/mukaportes/boilerplate-rest-api#readme",
+  "devDependencies": {
+    "eslint": "^7.3.1",
+    "eslint-config-airbnb-base": "^14.2.0"
+  }
+}
