@@ -9,6 +9,6 @@ const sequelize = new Sequelize(
 );
 
 module.exports = {
-  sequelizeInstance: sequelize,
   queryTypes: Sequelize.QueryTypes,
+  sequelizeInstance: sequelize,
 };
