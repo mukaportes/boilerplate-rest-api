@@ -1,3 +1,7 @@
+const HttpModule = require('../../../modules/http');
+
 module.exports = (req, res) => {
-  return res.status(200).json({ ok: true });
+  const http = new HttpModule(req, res);
+
+  return http.respondSuccess({ ok: true });
 };
